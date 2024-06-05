@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body >
+  <div style="float: left; position: fixed; margin-left: 30px; margin-top: 430px;">
+    <div>
+      <a href="https://www.whatsapp.com/">
+        <img src="images/whats app.png" alt=":(" width="40px" >
+      </a>
+    </div>
+    <div>
+      <a href="https://www.gmail.com/">
+        <img src="images/email.png" alt=":(" width="40px"></a>
+      </div>
+      <div>
+        <a href="https://www.gmail.com/">
+          <img src="images/phone.png" alt=":(" width="40px">
+        </a>
+      </div>
+  <div id="fb">
+    <a href="https://www.gmail.com/">
+      <img src="images/fb.png" alt=":(" width="40px">
+    </a>
+  </div>
+</div>
+    <header>
+            <img src="images/SIS.png" alt="erroe" id="image" >
+            <div style="float:right;" id="bar"><a href="About.html" id="underline"><h2 style="font-weight: 100; color: black" id="bottom">About US</h2></a></div>
+            <div style="float:right;"id="bar"><a href="contact-us.html" id="underline"><h2 style="font-weight: 100; color: black;" id="bottom">Contact US</h2></a></div>
+            <div style="float:right;" id="bar"><a href="Home.html" id="underline"><h2 style="font-weight: 100; color: black" id="bottom">Home Page</h2></a></div>
+    </header>
+    <div style="text-align: center;" id="">
+    
+    <!--  <img src="images/SI.png" alt="error" width="400px" style="padding-top: 40px; border-radius: 100000px;"  >
+    -->
+    <div>
+      <br><br>
+     <div id="profile">
+      <h1 id="reg">Faculty Registration</h1>
+      <div id="info">
+        <form action="/register-faculty" method="post">
+            <div id="college">
+            <p>Please select Faculty's Associated branch :</p>
+          <select name="Branch" id="BS">
+              <option value="Computer Science">CS</option>
+              <option value="Information Technology">IT</option>
+              <option value="Civil">Civil</option>
+              <option value="Machenical">Mechenical</option>
+              <option value="Electronics and Communication">EC</option>
+            </select>
+          </div>
+          <br>
+            <div id="college">
+          <label for="fname">Enter faculty's full name <span style="color:red;">*</span></label>
+          <br>
+          <input type="text" id="box" name="Name" value=""></div>
+          <br>
+          <div id="college">
+            <label for="fname">Enter Phone number of Faculty<span style="color:red;">*</span></label>
+            <br>
+            <input type="tel" id="box" name="phone" value="" maxlength="10">
+            <br>
+            <br>
+          </div>
+          <div id="college">
+          <label for="lname">Official Email of faculty<span style="color:red;">*</span></label>
+          <br>
+          <input type="email" id="box" name="Email" placeholder="example@poornima.org"></div>
+          <br>
+          <div id="college">
+            <label for="lname">Password for Faculty <span style="color:red;">*</span></label>
+            <br>
+            <input type="password" id="box" name="password" placeholder="Password"></div>
+            <br>
+      <br>
+      
+          <input type="submit" value="Add Faculty">
+
+          <input type="reset" value="reset">
+        </form> <div>
+          <br><br><br>
+     </div>
+
+    
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body >
+
+    <header>
+            <img src="images/SIS.png" alt="error" id="image" >
+            <div style="float:right;" id="bar"><a href="About.html" id="underline"><h2 style="font-weight: 100; color: black" id="bottom">About US</h2></a></div>
+            <div style="float:right;"id="bar"><a href="contact-us.html" id="underline"><h2 style="font-weight: 100; color: black;" id="bottom">Contact US</h2></a></div>
+            <div style="float:right;" id="bar"><a href="Home.html" id="underline"><h2 style="font-weight: 100; color: black" id="bottom">Home Page</h2></a></div>
+    </header>
+    <br>
+    <br>
+    <div style="text-align: center;" >
+      <a href="studentregister.html"><button type="button" id="reset">Click here to add Student >></button></a>
+      <a href="facultyregister.html"><button type="button" id="reset">Click here to add Faculty >></button></a>
+    </div>
+    <br><br>
+    <div style="text-align: center;">
+      <h1 style="font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      color: rgb(248, 248, 248);" >Registered Faculties</h1>
+      <table id="facultyTable" style="margin-top: 0%;" >
+          <tr id="th">
+            <th>Sr No.</th>
+            <th>Faculty Name</th>
+            <th>Branch</th>
+            <th>Email</th>
+            <th>Phone</th> 
+          </tr>
+        
+      </table>
+    </div>
+    <br>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      // JavaScript code for fetching and displaying faculty data
+       $(document).ready(function() {
+  // Fetch faculty data from the server
+  $.get('/faculty-data', function(data) {
+    // Iterate through each faculty record and append to table
+    var tempcont=1;
+    data.forEach(function(faculty) {
+      if( tempcont%2===0 )
+      $('#facultyTable').append(`
+        <tr id="even">
+          <td id="num">${tempcont}.</td>
+          <td>${faculty.Name}</td>
+          <td>${faculty.BranchName}</td>
+          <td>${faculty.Email}</td>
+          <td>${faculty.Phone}</td>
+        </tr>
+      `);
+      else $('#facultyTable').append(`
+        <tr>
+          <td id="num">${tempcont}.</td>
+          <td>${faculty.Name}</td>
+          <td>${faculty.BranchName}</td>
+          <td>${faculty.Email}</td>
+          <td>${faculty.Phone}</td>
+        </tr>
+      `);
+      tempcont++;
+    });
+  });
+});
+</script>
+<div style="text-align: center;">
+  <h1 style="font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: rgb(248, 248, 248);" >Registered Students</h1>
+  <table id="studentTable" style="margin-top: 0%;" >
+      <tr id="th">
+        <th>Sr No.</th>
+        <th>Student Name</th>
+        <th>Branch</th>
+        <th>Section</th>
+        <th>Email</th> 
+        <th>Phone</th> 
+      </tr>
+    
+  </table>
+</div>
+<br>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  // JavaScript code for fetching and displaying faculty data
+   $(document).ready(function() {
+// Fetch faculty data from the server
+$.get('/student-data', function(data) {
+// Iterate through each faculty record and append to table
+var tempcont=1;
+data.forEach(function(student) {
+if( tempcont%2===0 )
+  $('#studentTable').append(`
+    <tr id="even">
+      <td id="num">${tempcont}.</td>
+      <td>${student.Name}</td>
+      <td>${student.BranchName}</td>
+      <td>${student.SectionName}</td>
+      <td>${student.Email}</td>
+      <td>${student.Phone}</td>
+    </tr>
+  `);
+  else $('#studentTable').append(`
+  <tr>
+      <td id="num">${tempcont}.</td>
+      <td>${student.Name}</td>
+      <td>${student.BranchName}</td>
+      <td>${student.SectionName}</td>
+      <td>${student.Email}</td>
+      <td>${student.Phone}</td>
+    </tr>
+  `);
+  tempcont++;
+});
+});
+});
+</script>
+
+
+    
+
+    
+</body>
+</html>

@@ -1,0 +1,105 @@
+header 
+{
+    background-color: rgb(255, 255, 255);
+    width: Auto;
+    height: 100px;
+   
+    
+}
+#image
+{
+    padding-top: 10px;
+    padding-left: 40px;
+}
+
+body
+{
+    margin:0;
+    padding:0;
+    background-image: url(images/main.jpg);
+}
+
+#SIS
+{
+    width: 120px;
+
+}
+
+#profile
+{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 300px ;
+    width: 700px;
+    height: auto;
+    background-color: white;
+    border-radius: 10px;
+}
+
+#info
+{
+
+    text-align: center;
+}
+
+
+#reg {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold; 
+    text-align: center;
+    padding-top: 40px;
+}
+
+
+
+#college 
+{
+    text-align: left;
+    padding-left: 170px;
+    font-weight: bolder;
+}
+
+#box
+{
+    width: 320px;
+    height: 30px;
+    border-color: rgba(255, 255, 255, 0);
+    background-color: rgb(224, 221, 221);
+}
+
+#BS
+{
+    width: 158px;
+    height: 25px;
+    border-color: rgba(255, 255, 255, 0);
+    background-color: rgb(224, 221, 221);
+}
+
+#single
+{
+    width: 320px;
+    height: 25px;
+    border-color: rgba(255, 255, 255, 0);
+    background-color: rgb(224, 221, 221);
+    border: px;
+}
+
+
+
+#bar
+{
+    width: 150px;
+    margin-top: 20px;
+    color: rgba(0, 0, 0, 0.795);
+    
+}
+
+
+
+#underline { 
+    text-decoration: underline;
+    text-decoration-color: rgba(0, 255, 34, 0.719);
+    text-underline-offset: 4px;
+}
+
+
+#fb { filter: brightness(3); }

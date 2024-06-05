@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty</title>
+    <link rel="stylesheet" href="faculty.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      
+      table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 150%;
+          margin-top: 10px;
+      }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+      
+        #num
+        {
+            width: 12px;
+        }
+        #even
+        {
+            width: 12px;
+            color: white;
+        }
+      
+        #th
+        {
+            color: aliceblue;
+        }
+          </style>
+</head>
+<body >
+  <div style="float: left; position: fixed; margin-left: 30px; margin-top: 430px;">
+    <div>
+      <a href="https://www.whatsapp.com/">
+        <img src="images/whats app.png" alt=":(" width="40px" >
+      </a>
+    </div>
+    <div>
+      <a href="https://www.gmail.com/">
+        <img src="images/email.png" alt=":(" width="40px"></a>
+      </div>
+      <div>
+        <a href="https://www.gmail.com/">
+          <img src="images/phone.png" alt=":(" width="40px">
+        </a>
+      </div>
+  <div id="fb">
+    <a href="https://www.gmail.com/">
+      <img src="images/fb.png" alt=":(" width="40px">
+    </a>
+  </div>
+</div>
+    <header>
+            <img src="images/SIS.png" alt="error" id="image" >
+            <div style="float:right;" id="bar"><a href="About.html" id="underline"><h2 style="font-weight: 100; color: black" id="bottom">About US</h2></a></div>
+            <div style="float:right;"id="bar"><a href="contact-us.html" id="underline"><h2 style="font-weight: 100; color: black;" id="bottom">Contact US</h2></a></div>
+            <div style="float:right;" id="bar"><a href="Home.html" id="underline"><h2 style="font-weight: 100; color: black" id="bottom">Home Page</h2></a></div>
+    </header>
+    <div style=" width: 100%;"> 
+      <div style="text-align: center; margin-right: 20%; float: right;" >
+        <h1 style="font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      color: rgb(248, 248, 248);" >Today's Schedule </h1>
+      <table id="faculty-schedule" >
+        <tr id="th">
+          <th>SrNo.</th>
+          <th>Subject</th>
+          <th>Timing</th>
+          <th>Location</th>
+          <th>Section</th>
+        </tr>
+      </table>
+      </div>
+        <div id="form" style="float:left;">
+          <br>
+                <h1 id="Faculty"></h1>
+                <hr>
+                <div id="info">
+                    <br>
+                    <a href="changepassword.html"><button type="button" class="reset">Click here to change password >></button></a>
+                    <br><br>
+                    <hr>
+                    <br>
+                    <a href="addclass.html"><button type="button" class="reset">Click here to add class >></button></a>
+                    <br><br>
+                    <hr>
+                    <br>
+                    <a href="#" id=""><button type="button" class="reset" id="attendanceDownload">Click here to download Attendance >></button></a>
+                    <br><br>
+                    <hr>
+                </div>
+    </div>
+
+    
+</body>
+</html>
+<script>
+  // JavaScript code for fetching and displaying faculty data
+   $(document).ready(function() {$.get('/faculty-name', function(data){document.getElementById("Faculty").innerHTML = "Hey "+data[0].Name;});});
+      // JavaScript code for fetching and displaying faculty Scheduled classes for today
+       $(document).ready(function() {
+  // Fetch faculty data from the server
+  $.get('/faculty-schedule', function(data) {
+    // Iterate through each faculty record and append to table
+    var tempcont=1;
+    data.forEach(function(fschedule) {
+      if( tempcont%2===0 )
+      $('#faculty-schedule').append(`
+        <tr id="even">
+          <td id="num">${tempcont}.</td>
+          <td>${fschedule.SubjectName}</td>
+          <td>${fschedule.Timing+":00 to "+(fschedule.Timing+1)+":00" }</td>
+          <td>${fschedule.ClassLocationID}</td>
+          <td>${fschedule.SectionName}</td>
+        </tr>
+      `);
+      else $('#faculty-schedule').append(`
+        <tr>
+          <td id="num">${tempcont}.</td>
+          <td>${fschedule.SubjectName}</td>
+          <td>${fschedule.Timing+":00 to "+(fschedule.Timing+1)+":00" }</td>
+          <td>${fschedule.ClassLocationID}</td>
+          <td>${fschedule.SectionName}</td>
+        </tr>
+      `);
+      tempcont++;
+    });
+  });
+});
+
+document.getElementById('attendanceDownload').addEventListener('click', fun = function() {
+    var dateInput = prompt("Please enter the date (format: YYYY-MM-DD):");
+
+    if (dateInput) {
+        var selectedDate = new Date(dateInput);
+        var currentDate = new Date();
+        console.log("Date input:", selectedDate);
+        console.log("Date input:", currentDate);
+
+        if (selectedDate <= currentDate) {
+            // Send date to server as JSON
+            var requestData = { date: dateInput };
+            let fileName;
+            fetch('/generate_attendance_zip', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify(requestData)
+              })
+              .then(response => {
+                  if (!response.ok) {
+                      throw new Error('Network response was not ok');
+                  }
+                  const contentDisposition = response.headers.get('Content-Disposition');
+                  fileName = contentDisposition.match(/filename="(.+)"/)[1];
+                  console.log(fileName);
+                  return response.blob();
+              })
+              .then(blob => {
+                  const url = window.URL.createObjectURL(blob);
+                  const a = document.createElement('a');
+                  a.style.display = 'none';
+                  a.href = url;
+                  a.download = fileName;
+                  document.body.appendChild(a);
+                  a.click();
+                  document.body.removeChild(a);
+                  window.URL.revokeObjectURL(url);
+              })
+              .catch(error => {
+                  console.error('There was a problem with the fetch operation:', error);
+              });
+            
+        } else {
+            alert("Please enter today's date or a date in the past.");
+            fun();
+        }
+    }
+});
+
+</script>

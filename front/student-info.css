@@ -1,0 +1,39 @@
+header 
+{
+    background-color: rgb(255, 255, 255);
+    width: Auto;
+    height: 100px;
+   
+    
+}
+#image
+{
+    padding-top: 10px;
+    padding-left: 40px;
+}
+
+body
+{
+    margin:0;
+    padding:0;
+    background-image: url(images/main.jpg);
+}
+
+#bar
+{
+    width: 150px;
+    margin-top: 20px;
+    color: rgba(0, 0, 0, 0.795);
+    
+}
+
+
+
+#underline { 
+    text-decoration: underline;
+    text-decoration-color: rgba(0, 255, 34, 0.719);
+    text-underline-offset: 4px;
+}
+
+
+#fb { filter: brightness(3); }

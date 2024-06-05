@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information</title>
+    <link rel="stylesheet" href="student.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body >
+  <div style="float: left; position: fixed; margin-left: 30px; margin-top: 430px;">
+    <div>
+      <a href="https://www.whatsapp.com/">
+        <img src="images/whats app.png" alt=":(" width="40px" >
+      </a>
+    </div>
+    <div>
+      <a href="https://www.gmail.com/">
+        <img src="images/email.png" alt=":(" width="40px"></a>
+      </div>
+      <div>
+        <a href="https://www.gmail.com/">
+          <img src="images/phone.png" alt=":(" width="40px">
+        </a>
+      </div>
+  <div id="fb">
+    <a href="https://www.gmail.com/">
+      <img src="images/fb.png" alt=":(" width="40px">
+    </a>
+  </div>
+</div>
+    <header>
+            <img src="images/SIS.png" alt="error" id="image" >
+            <div style="float:right;" id="bar"><a href="About.html" id="underline"><h2 style="font-weight: 100; color: black" id="bottom">About US</h2></a></div>
+            <div style="float:right;"id="bar"><a href="contact-us.html" id="underline"><h2 style="font-weight: 100; color: black;" id="bottom">Contact US</h2></a></div>
+            <div style="float:right;" id="bar"><a href="Home.html" id="underline"><h2 style="font-weight: 100; color: black" id="bottom">Home Page</h2></a></div>
+    </header>
+    <div style=" width: 100%;"> 
+    <h1 style="font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+      text-align: center;
+    
+    color: rgb(248, 248, 248);">Student Information</h1>
+    <div style="font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+      text-align: left;
+      margin-left: 140px;
+    
+    color: rgb(248, 248, 248);">
+      <h2 id="sname">Student's Full name &nbsp;&nbsp;- &nbsp;&nbsp; </h2>
+      <h2 id="sbranch" >Branch&nbsp;&nbsp; -&nbsp;&nbsp; </h2>
+      <h2 id="ssection">Section&nbsp;&nbsp; -&nbsp;&nbsp; </h2>
+      <h2 id="semail">Official Email &nbsp;&nbsp;- &nbsp;&nbsp; </h2>
+      <h2 id="sphone">Phone &nbsp;&nbsp;- &nbsp;&nbsp; </h2>
+      <h2 id="sdob">DOB &nbsp;&nbsp;- &nbsp;&nbsp;</h2>
+      <h2>Student's Photo &nbsp;&nbsp;- &nbsp;&nbsp;</h2>
+      <img id="simage" src="images/SP.png" alt="" width="190px">
+    </div>   
+    </div>
+
+    
+</body>
+</html>
+
+<script>
+  // JavaScript code for fetching and displaying faculty data
+   $(document).ready(function() {
+// Fetch faculty data from the server
+$.get('/student-info', function(data) {
+document.getElementById("sname").innerHTML += data[0].Name;
+document.getElementById("sbranch").innerHTML += data[0].BranchName;
+document.getElementById("ssection").innerHTML += data[0].SectionName;
+document.getElementById("semail").innerHTML += data[0].Email;
+document.getElementById("sphone").innerHTML += data[0].Phone;
+document.getElementById("sdob").innerHTML += data[0].DOB.split('T')[0];
+});
+});
+fetch('http://localhost:4500/get-student-image')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.blob();
+                })
+                .then(blob => {
+                    const imageUrl = URL.createObjectURL(blob);
+                    document.getElementById('simage').src = imageUrl;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+</script>

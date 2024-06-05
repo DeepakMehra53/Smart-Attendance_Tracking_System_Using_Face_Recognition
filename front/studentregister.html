@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body >
+  <div style="float: left; position: fixed; margin-left: 30px; margin-top: 430px;">
+    <div>
+      <a href="https://www.whatsapp.com/">
+        <img src="images/whats app.png" alt=":(" width="40px" >
+      </a>
+    </div>
+    <div>
+      <a href="https://www.gmail.com/">
+        <img src="images/email.png" alt=":(" width="40px"></a>
+      </div>
+      <div>
+        <a href="https://www.gmail.com/">
+          <img src="images/phone.png" alt=":(" width="40px">
+        </a>
+      </div>
+  <div id="fb">
+    <a href="https://www.gmail.com/">
+      <img src="images/fb.png" alt=":(" width="40px">
+    </a>
+  </div>
+</div>
+    <header>
+            <img src="images/SIS.png" alt="erroe" id="image" >
+            <div style="float:right;" id="bar"><a href="About.html" id="underline"><h2 style="font-weight: 100; color: black" id="bottom">About US</h2></a></div>
+            <div style="float:right;"id="bar"><a href="contact-us.html" id="underline"><h2 style="font-weight: 100; color: black;" id="bottom">Contact US</h2></a></div>
+            <div style="float:right;" id="bar"><a href="Home.html" id="underline"><h2 style="font-weight: 100; color: black" id="bottom">Home Page</h2></a></div>
+    </header>
+    <div style="text-align: center;" id="">
+    
+    <!--  <img src="images/SI.png" alt="error" width="400px" style="padding-top: 40px; border-radius: 100000px;"  >
+    -->
+    <div>
+      <br><br>
+     <div id="profile">
+      <h1 id="reg">Student Registration</h1>
+      <div id="info">
+        <form action="/register-student" method="post">
+            <div id="college">
+            <p>Please select student's Branch and Section : </p>
+          <select name="Branch" id="BS">
+              <option value="Computer Science">CS</option>
+              <option value="Information Technology">IT</option>
+              <option value="Civil">Civil</option>
+              <option value="Electronics and Communication">Mechenical</option>
+              <option value="Machenical">Data science</option>
+            </select>
+            
+            <select name="Section" id="BS">
+              <option value="A">A</option>
+              <option value="B">B</option>
+              <option value="C">C</option>
+              <option value="D">D</option>
+            </select></div>
+          <br>
+            <div id="college">
+          <label for="fname">Enter full name of student<span style="color:red;">*</span></label>
+          <br>
+          <input type="text" id="box" name="Student_Name" value=""></div>
+          <br>
+          <div id="college">
+          <label for="lname">Official Email for registration<span style="color:red;">*</span></label>
+          <br>
+          <input type="email" id="box" name="Email" placeholder="example@poornima.org"></div>
+          <br>
+          <div id="college">
+            <label for="lname">Password for the student<span style="color:red;">*</span></label>
+            <br>
+            <input type="text" id="box" name="password" placeholder="password@123"></div>
+            <br>
+          <div id="college">
+          <label for="fname">Enter Phone number of student<span style="color:red;">*</span></label>
+          <br>
+          <input type="tel" id="box" name="phone" value="" maxlength="10">
+          
+          <br>
+          <br>
+          <label for="fname">Enter Student's DOB <span style="color:red;">*</span></label>
+          <br>
+          <input type="date" id="box" name="DOB" value="">
+      <br><br>
+      </div>
+      <br>
+      
+          <input type="submit" value="Add Student">
+
+          <input type="reset" value="Reset Form">
+        </form> <div>
+          <br><br><br>
+     </div>
+
+    
+</body>
+</html>

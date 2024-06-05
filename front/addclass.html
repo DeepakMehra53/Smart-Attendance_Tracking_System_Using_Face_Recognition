@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body >
+  <div style="float: left; position: fixed; margin-left: 30px; margin-top: 430px;">
+    <div>
+      <a href="https://www.whatsapp.com/">
+        <img src="images/whats app.png" alt=":(" width="40px" >
+      </a>
+    </div>
+    <div>
+      <a href="https://www.gmail.com/">
+        <img src="images/email.png" alt=":(" width="40px"></a>
+      </div>
+      <div>
+        <a href="https://www.gmail.com/">
+          <img src="images/phone.png" alt=":(" width="40px">
+        </a>
+      </div>
+  <div id="fb">
+    <a href="https://www.gmail.com/">
+      <img src="images/fb.png" alt=":(" width="40px">
+    </a>
+  </div>
+</div>
+    <header>
+            <img src="images/SIS.png" alt="erroe" id="image" >
+            <div style="float:right;" id="bar"><a href="About.html" id="underline"><h2 style="font-weight: 100; color: black" id="bottom">About US</h2></a></div>
+            <div style="float:right;"id="bar"><a href="contact-us.html" id="underline"><h2 style="font-weight: 100; color: black;" id="bottom">Contact US</h2></a></div>
+            <div style="float:right;" id="bar"><a href="Home.html" id="underline"><h2 style="font-weight: 100; color: black" id="bottom">Home Page</h2></a></div>
+    </header>
+    <div style="text-align: center;" id="">
+    
+    <!--  <img src="images/SI.png" alt="error" width="400px" style="padding-top: 40px; border-radius: 100000px;"  >
+    -->
+    <div>
+      <br><br>
+     <div id="profile">
+      <h1 id="reg">Please Enter class details</h1>
+      <div id="info">
+        <form action="/add-class" method="post">
+            <div id="college">
+            <p>Please select Section and classroom: </p>
+            <select name="Section" id="BS">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+              </select> 
+            <select name="Class_Room" id="BS">
+              <option value="CS-A">CS-A</option>
+              <option value="CS-B">CS-B</option>
+              <option value="CS-C">CS-C</option>
+              <option value="CS-D">CS-D</option>
+            </select>
+        </div>
+          <br>
+            <div id="college">
+          <label for="fname">Enter Subject Name<span style="color:red;">*</span></label>
+          <br>
+          <input type="text" id="box" name="Subject_Name" value=""></div>
+          <div id="college">
+            <p>Please select class timing (IST): </p> 
+            <select name="Timing" id="BS">
+              <option value="8">8:00 - 9:00</option>
+              <option value="9">9:00 - 10:00</option>
+              <option value="10">10:00 - 11:00</option>
+              <option value="11">11:00 - 12:00</option>
+              <option value="12">12:00 - 13:00</option>
+              <option value="13">13:00 - 14:00</option>
+              <option value="14">14:00 - 15:00</option>
+            </select>
+            <input type="date" id="BS" name="ClassDate">
+          </div>
+      <br><br>
+      </div>
+      <br>
+      
+          <input type="submit" value="Add Class">
+
+          <input type="reset" value="Reset Form">
+        </form> <div>
+          <br><br><br>
+     </div>
+
+    
+</body>
+</html>
